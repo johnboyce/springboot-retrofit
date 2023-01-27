@@ -2,6 +2,7 @@ package com.comcast.oktest.service;
 
 import com.comcast.oktest.model.User;
 import com.comcast.oktest.model.UserApiResponse;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -17,9 +18,9 @@ public class UserService {
     public UserService(Retrofit userRetrofit) {
         this.userService = userRetrofit.create(UserClient.class);
     }
-
-    public User lookupUser(long id) throws IOException {
-        Call<UserApiResponse> User = userService.getUser(id);
+    @Cacheable(value = "users", key = "#userid")
+    public User lookupUser(long userid) throws IOException {
+        Call<UserApiResponse> User = userService.getUser(userid );
         Response<UserApiResponse> execute = User.execute();
         UserApiResponse body = execute.body();
         return Objects.requireNonNull(body).getData();

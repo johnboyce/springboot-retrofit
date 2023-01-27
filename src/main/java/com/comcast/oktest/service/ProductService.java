@@ -1,6 +1,7 @@
 package com.comcast.oktest.service;
 
 import com.comcast.oktest.model.Product;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -15,7 +16,7 @@ public class ProductService {
     public ProductService(Retrofit productRetrofit) {
         this.productClient = productRetrofit.create(ProductClient.class);
     }
-
+    @Cacheable(value = "products", key = "#productNumber")
     public Product lookupProduct(Integer productNumber) throws IOException {
         Call<Product> product = productClient.getProduct(productNumber);
         Response<Product> execute = product.execute();
