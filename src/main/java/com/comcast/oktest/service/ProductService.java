@@ -1,7 +1,11 @@
 package com.comcast.oktest.service;
 
 import com.comcast.oktest.model.Product;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -11,16 +15,25 @@ import java.io.IOException;
 
 @Service
 public class ProductService {
+
+    public static final String PRODUCTS = "products";
+    private final Logger logger =  LoggerFactory.getLogger(ProductService.class);
     private final ProductClient productClient;
 
     public ProductService(Retrofit productRetrofit) {
         this.productClient = productRetrofit.create(ProductClient.class);
     }
-    @Cacheable(value = "products", key = "#productNumber")
+    @Cacheable(value = PRODUCTS, key = "#productNumber")
     public Product lookupProduct(Integer productNumber) throws IOException {
         Call<Product> product = productClient.getProduct(productNumber);
         Response<Product> execute = product.execute();
         return execute.body();
+    }
+
+    @CacheEvict(value = PRODUCTS, allEntries = true)
+    @Scheduled(fixedRateString = "${caching.spring.products.ttl}")
+    public void evictProductCache() {
+        logger.info("evicting {} cache", PRODUCTS);
     }
 
 }
