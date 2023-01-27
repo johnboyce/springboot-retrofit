@@ -3,9 +3,8 @@ package com.comcast.oktest.service;
 import com.comcast.oktest.model.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -14,6 +13,7 @@ import retrofit2.Retrofit;
 import java.io.IOException;
 
 @Service
+@CacheConfig(cacheNames = {"products"})
 public class ProductService {
 
     public static final String PRODUCTS = "products";
@@ -29,11 +29,4 @@ public class ProductService {
         Response<Product> execute = product.execute();
         return execute.body();
     }
-
-    @CacheEvict(value = PRODUCTS, allEntries = true)
-    @Scheduled(fixedRateString = "${caching.spring.products.ttl}")
-    public void evictProductCache() {
-        logger.info("evicting {} cache", PRODUCTS);
-    }
-
 }
