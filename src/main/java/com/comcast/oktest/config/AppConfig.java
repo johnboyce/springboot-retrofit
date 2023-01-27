@@ -26,7 +26,7 @@ public class AppConfig {
     }
 
     @Bean
-    public Retrofit userRetrofit(){
+    public Retrofit userRetrofit() {
         return new Retrofit.Builder()
                 .baseUrl("https://reqres.in/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -35,7 +35,7 @@ public class AppConfig {
     }
 
     @Bean
-    public Retrofit productRetrofit(){
+    public Retrofit productRetrofit() {
         return new Retrofit.Builder()
                 .baseUrl("https://dummyjson.com/")
                 .addConverterFactory(GsonConverterFactory.create())

@@ -17,12 +17,13 @@ import java.io.IOException;
 public class ProductService {
 
     public static final String PRODUCTS = "products";
-    private final Logger logger =  LoggerFactory.getLogger(ProductService.class);
+    private final Logger logger = LoggerFactory.getLogger(ProductService.class);
     private final ProductClient productClient;
 
     public ProductService(Retrofit productRetrofit) {
         this.productClient = productRetrofit.create(ProductClient.class);
     }
+
     @Cacheable(value = PRODUCTS, key = "#productNumber")
     public Product lookupProduct(Integer productNumber) throws IOException {
         Call<Product> product = productClient.getProduct(productNumber);

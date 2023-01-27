@@ -19,11 +19,12 @@ import java.util.Objects;
 public class UserService {
     public static final String USERS = "users";
     private final UserClient userService;
-    private final Logger logger =  LoggerFactory.getLogger(UserService.class);
+    private final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     public UserService(Retrofit userRetrofit) {
         this.userService = userRetrofit.create(UserClient.class);
     }
+
     @Cacheable(value = USERS, key = "#userid")
     public User lookupUser(long userid) throws IOException {
         Call<UserApiResponse> User = userService.getUser(userid

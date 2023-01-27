@@ -1,0 +1,11 @@
+cache:
+  definitions:
+    cacheConfig:
+      -
+        name: users
+        maximumSize: 20
+        expireAfterWrite: 60
+      -
+        name: products
+        maximumSize: 20
+        expireAfterWrite: 120
