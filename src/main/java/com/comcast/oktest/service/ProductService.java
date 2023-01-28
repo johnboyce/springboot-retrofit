@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import rx.Observable;
 
 import java.io.IOException;
 
@@ -26,8 +27,8 @@ public class ProductService {
 
     @Cacheable(value = PRODUCTS, key = "#productNumber", unless="#result == null")
     public Product lookupProduct(Integer productNumber) throws IOException {
-        Call<Product> product = productClient.getProduct(productNumber);
-        Response<Product> execute = product.execute();
-        return execute.body();
+        Observable<Product> product = productClient.getProduct(productNumber);
+        Product single = product.toBlocking().single();
+        return single;
     }
 }

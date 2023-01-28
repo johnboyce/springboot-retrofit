@@ -13,12 +13,13 @@ Since I needed to utilize a rest client, I also located a few free Rest JSON API
 With that, here are some of the high level decisions:
 - SpringBoot
 - Java 11
-- Retrofit (bundles OkHttp3)
+- Retrofit (bundles OkHttp3 but I have excluded for a new version)
 
 As I got into it, I just kept going and added:
 - Spring Cache
 - Caffeine
 - Lombok
+- RxJava
 
 It's worth noting that there is really no business logic to speak of in this project, just a demonstration of a few handy libraries. I did, however, create a few model classes to match the responses of the APIs I chose to integrate with.
 
@@ -35,3 +36,4 @@ It works!
 - [SpringBoot Caching](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#io.caching)
 - [Caffeine](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#io.caching.provider.caffeine)
 - [Lombok](https://projectlombok.org/)
+- [rxJava](https://github.com/ReactiveX/RxJava)

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import rx.Observable;
+import rx.Subscription;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -27,9 +29,8 @@ public class UserService {
 
     @Cacheable(value = USERS, key = "#userid", unless="#result == null")
     public User lookupUser(long userid) throws IOException {
-        Call<UserApiResponse> User = userService.getUser(userid);
-        Response<UserApiResponse> execute = User.execute();
-        UserApiResponse body = execute.body();
-        return Objects.requireNonNull(body).getData();
+        Observable<UserApiResponse> user = userService.getUser(userid);
+        UserApiResponse single = user.toBlocking().single();
+        return single.getData();
     }
 }

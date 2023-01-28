@@ -6,6 +6,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.util.concurrent.TimeUnit;
@@ -29,6 +30,7 @@ public class AppConfig {
     public Retrofit userRetrofit() {
         return new Retrofit.Builder()
                 .baseUrl("https://reqres.in/")
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClientBuilder().build())
                 .build();
@@ -38,6 +40,7 @@ public class AppConfig {
     public Retrofit productRetrofit() {
         return new Retrofit.Builder()
                 .baseUrl("https://dummyjson.com/")
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClientBuilder().build())
                 .build();
