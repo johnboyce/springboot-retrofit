@@ -25,10 +25,9 @@ public class UserService {
         this.userService = userRetrofit.create(UserClient.class);
     }
 
-    @Cacheable(value = USERS, key = "#userid", unless="#result != null")
+    @Cacheable(value = USERS, key = "#userid", unless="#result == null")
     public User lookupUser(long userid) throws IOException {
-        Call<UserApiResponse> User = userService.getUser(userid
-        );
+        Call<UserApiResponse> User = userService.getUser(userid);
         Response<UserApiResponse> execute = User.execute();
         UserApiResponse body = execute.body();
         return Objects.requireNonNull(body).getData();

@@ -24,7 +24,7 @@ public class ProductService {
         this.productClient = productRetrofit.create(ProductClient.class);
     }
 
-    @Cacheable(value = PRODUCTS, key = "#productNumber", unless="#result != null")
+    @Cacheable(value = PRODUCTS, key = "#productNumber", unless="#result == null")
     public Product lookupProduct(Integer productNumber) throws IOException {
         Call<Product> product = productClient.getProduct(productNumber);
         Response<Product> execute = product.execute();
