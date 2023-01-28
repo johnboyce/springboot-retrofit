@@ -1,0 +1,12 @@
+${AnsiColor.BRIGHT_CYAN} _____          __                             ${AnsiColor.YELLOW}  ____
+${AnsiColor.BRIGHT_CYAN}/\___ \        /\ \                             ${AnsiColor.YELLOW}/\  _`\
+${AnsiColor.BRIGHT_CYAN}\/__/\ \    ___\ \ \___     ___     ___   __  __${AnsiColor.YELLOW}\ \ \L\ \
+${AnsiColor.BRIGHT_CYAN}   _\ \ \  / __`\ \  _ `\ /' _ `\ /' _ `\/\ \/\ \${AnsiColor.YELLOW}\ \  _ <'
+${AnsiColor.BRIGHT_CYAN}  /\ \_\ \/\ \L\ \ \ \ \ \/\ \/\ \/\ \/\ \ \ \_\ \${AnsiColor.YELLOW}\ \ \L\ \
+${AnsiColor.BRIGHT_CYAN}  \ \____/\ \____/\ \_\ \_\ \_\ \_\ \_\ \_\/`____ \${AnsiColor.YELLOW}\ \____/
+${AnsiColor.BRIGHT_CYAN}   \/___/  \/___/  \/_/\/_/\/_/\/_/\/_/\/_/`/___/> \${AnsiColor.YELLOW}\/___/
+${AnsiColor.BRIGHT_CYAN}                                              /\___/
+${AnsiColor.BRIGHT_CYAN}                                              \/__/
+${AnsiColor.BRIGHT_WHITE}${application.title} ${application.version}
+Powered by Spring Boot ${spring-boot.version}
+${AnsiColor.DEFAULT}
