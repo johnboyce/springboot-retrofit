@@ -1,4 +1,4 @@
-package com.comcast.oktest.config;
+package com.johnnyb.oktest.config;
 
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;

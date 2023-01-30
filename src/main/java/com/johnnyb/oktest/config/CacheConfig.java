@@ -1,6 +1,6 @@
-package com.comcast.oktest.config;
+package com.johnnyb.oktest.config;
 
-import com.comcast.oktest.cache.CacheDefinitions;
+import com.johnnyb.oktest.cache.CacheDefinitions;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

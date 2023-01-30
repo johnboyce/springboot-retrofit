@@ -1,4 +1,4 @@
-package com.comcast.oktest;
+package com.johnnyb.oktest;
 
 import com.github.benmanes.caffeine.cache.stats.CacheStats;
 import org.slf4j.Logger;

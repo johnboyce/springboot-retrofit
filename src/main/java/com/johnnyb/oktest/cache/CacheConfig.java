@@ -1,4 +1,4 @@
-package com.comcast.oktest.cache;
+package com.johnnyb.oktest.cache;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

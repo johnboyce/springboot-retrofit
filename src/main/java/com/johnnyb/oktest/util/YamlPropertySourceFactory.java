@@ -1,4 +1,4 @@
-package com.comcast.oktest.util;
+package com.johnnyb.oktest.util;
 
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.core.env.PropertiesPropertySource;

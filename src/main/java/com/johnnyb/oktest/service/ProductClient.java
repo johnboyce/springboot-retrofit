@@ -1,6 +1,6 @@
-package com.comcast.oktest.service;
+package com.johnnyb.oktest.service;
 
-import com.comcast.oktest.model.Product;
+import com.johnnyb.oktest.model.Product;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import rx.Observable;

@@ -1,13 +1,11 @@
-package com.comcast.oktest.service;
+package com.johnnyb.oktest.service;
 
-import com.comcast.oktest.model.Product;
+import com.johnnyb.oktest.model.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import rx.Observable;
 

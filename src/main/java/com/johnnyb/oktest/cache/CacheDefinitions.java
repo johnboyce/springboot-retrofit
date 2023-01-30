@@ -1,6 +1,6 @@
-package com.comcast.oktest.cache;
+package com.johnnyb.oktest.cache;
 
-import com.comcast.oktest.util.YamlPropertySourceFactory;
+import com.johnnyb.oktest.util.YamlPropertySourceFactory;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

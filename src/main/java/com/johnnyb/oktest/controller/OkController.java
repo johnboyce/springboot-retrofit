@@ -1,9 +1,9 @@
-package com.comcast.oktest.controller;
+package com.johnnyb.oktest.controller;
 
-import com.comcast.oktest.model.Product;
-import com.comcast.oktest.model.User;
-import com.comcast.oktest.service.ProductService;
-import com.comcast.oktest.service.UserService;
+import com.johnnyb.oktest.model.Product;
+import com.johnnyb.oktest.model.User;
+import com.johnnyb.oktest.service.ProductService;
+import com.johnnyb.oktest.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

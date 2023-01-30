@@ -1,4 +1,4 @@
-package com.comcast.oktest.model;
+package com.johnnyb.oktest.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

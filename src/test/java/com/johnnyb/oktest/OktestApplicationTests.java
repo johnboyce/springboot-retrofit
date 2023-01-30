@@ -1,4 +1,4 @@
-package com.comcast.oktest;
+package com.johnnyb.oktest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
